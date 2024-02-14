@@ -17,11 +17,17 @@ export class UsersService {
         const user = await this.userModel.create(dto)
         const role = await this.roleModel.getRoles('USER')
         await user.$set('roles', [role.id])
+        user.roles = [role]
         return user;
     }
 
     async getUsers() {
         const users = await this.userModel.findAll({include: {all: true}})
         return users;
+    }
+
+    async getUserByEmail(email: string) {
+        const user = await this.userModel.findOne({where: {email}, include: {all: true}})
+        return user;
     }
 }
