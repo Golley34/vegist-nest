@@ -7,6 +7,13 @@ import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/roles.model';
 import { UserRoles } from './roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
+import { CartModule } from './cart/cart.module';
+import { Product } from './products/products.model';
+import { ProductsModule } from './products/products.module';
+import { Products_info } from './products/products_info.model';
+import { Products_info_images } from './products/products_info_images.model';
+import { Cart } from './cart/cart.model';
+import { CartProduct } from './cart/cart-product.model';
 
 
 @Module({
@@ -23,12 +30,14 @@ import { AuthModule } from './auth/auth.module';
             username: process.env.PG_USER,
             password: process.env.PG_PASS,
             database: process.env.PG_DB,
-            models: [User, Role, UserRoles],
+            models: [User, Role, UserRoles, Product, Products_info, Products_info_images, Cart, CartProduct],
             autoLoadModels: true
       }),
         UsersModule,
         RolesModule,
         AuthModule,
+        ProductsModule,
+        CartModule,
     ],
 })
 

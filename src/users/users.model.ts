@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany} from 'sequelize-typescript'
+import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, HasOne} from 'sequelize-typescript'
+import { Cart } from 'src/cart/cart.model';
 import { Role } from 'src/roles/roles.model';
 import { UserRoles } from 'src/roles/user-roles.model';
 
@@ -40,4 +41,7 @@ export class User extends Model<User, UserCreationAttributes> {
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]
+
+    @HasOne(() => Cart)
+    cart: Cart
 }
