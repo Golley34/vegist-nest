@@ -14,6 +14,12 @@ import { Products_info } from './products/products_info.model';
 import { Products_info_images } from './products/products_info_images.model';
 import { Cart } from './cart/cart.model';
 import { CartProduct } from './cart/cart-product.model';
+import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { ProductsSizeModule } from './products-size/products-size.module';
+import * as path from 'path'
+import { Size } from './products-size/size.model';
+import { SizeProducts } from './products-size/size-products.model';
 
 
 @Module({
@@ -23,6 +29,9 @@ import { CartProduct } from './cart/cart-product.model';
         ConfigModule.forRoot({
             envFilePath: `.${process.env.NODE_ENV}.env`
         }),
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, 'static'),
+        }),
         SequelizeModule.forRoot({
             dialect: 'postgres',
             host: process.env.PG_HOST,
@@ -30,14 +39,17 @@ import { CartProduct } from './cart/cart-product.model';
             username: process.env.PG_USER,
             password: process.env.PG_PASS,
             database: process.env.PG_DB,
-            models: [User, Role, UserRoles, Product, Products_info, Products_info_images, Cart, CartProduct],
-            autoLoadModels: true
+            models: [User, Role, UserRoles, Product, Products_info, Products_info_images, Cart, CartProduct, Size, SizeProducts],
+            autoLoadModels: true,
+            synchronize: true,
       }),
         UsersModule,
         RolesModule,
         AuthModule,
         ProductsModule,
         CartModule,
+        FilesModule,
+        ProductsSizeModule,
     ],
 })
 

@@ -1,11 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, HasMany, BelongsTo} from 'sequelize-typescript'
+import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, HasMany, BelongsTo, ForeignKey} from 'sequelize-typescript'
 import { Products_info_images } from './products_info_images.model';
 import { Product } from './products.model';
 
 interface ProductsInfoCreationAttributes {
     more_detail: string
-    availability: boolean
 }
 
 @Table({
@@ -37,6 +36,12 @@ export class Products_info extends Model<Products_info, ProductsInfoCreationAttr
         defaultValue: true,
     })
     availability: boolean
+
+    @ForeignKey(() => Product)
+    @Column({
+        type: DataType.INTEGER,
+    })
+    productId: number
 
     @HasMany(() => Products_info_images)
     images: Products_info_images[]

@@ -3,13 +3,15 @@ import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, HasO
 import { CartProduct } from 'src/cart/cart-product.model';
 import { Cart } from 'src/cart/cart.model';
 import { Products_info } from './products_info.model';
+import { Size } from 'src/products-size/size.model';
+import { SizeProducts } from 'src/products-size/size-products.model';
+
 
 interface ProductCreationAttributes {
     name: string
     price: number
-    image: string
     categories: string
-    size: string
+    image: string
 }
 
 @Table({
@@ -37,7 +39,7 @@ export class Product extends Model<Product, ProductCreationAttributes> {
 
     @ApiProperty({example: 75, description: 'Цена продукта'})
     @Column({
-        type: DataType.NUMBER,
+        type: DataType.INTEGER,
         allowNull: false,
     })
     price: number
@@ -54,16 +56,12 @@ export class Product extends Model<Product, ProductCreationAttributes> {
     })
     categories: string
 
-    @ApiProperty({example: '5 Kg', description: 'Вес продукта'})
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    size: string
-
     @BelongsToMany(() => Cart, () => CartProduct)
     carts: Cart[]
 
     @HasOne(() => Products_info)
     info: Products_info
+
+    @BelongsToMany(() => Size, () => SizeProducts)
+    size: Size[]
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Role } from './roles.model';
-import { CreateRoleDto } from './dto/creatrRole.dto';
+import { CreateRoleDto } from './dto/createRole.dto';
 
 @Injectable()
 export class RolesService {
