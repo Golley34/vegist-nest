@@ -72,3 +72,16 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 # vegist-nest
+
+- Detailed api documentation is available at /docs
+
+- env file should contain the following fields:
+    APP_PORT
+    PG_DB
+    PG_HOST
+    PG_USER
+    PG_PASS
+    PG_PORT
+    BCRYPT_SALT
+    EMAIL
+    PRIVATE_KEY
