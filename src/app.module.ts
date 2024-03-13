@@ -20,6 +20,7 @@ import { ProductsSizeModule } from './products-size/products-size.module';
 import * as path from 'path'
 import { Size } from './products-size/size.model';
 import { SizeProducts } from './products-size/size-products.model';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
@@ -50,6 +51,7 @@ import { SizeProducts } from './products-size/size-products.model';
         CartModule,
         FilesModule,
         ProductsSizeModule,
+        JwtModule
     ],
 })
 

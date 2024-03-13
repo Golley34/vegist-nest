@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany} from 'sequelize-typescript'
+import {Model, Table, Column, DataType, BelongsToMany} from 'sequelize-typescript'
 import { SizeProducts } from './size-products.model';
 import { Product } from 'src/products/products.model';
 
@@ -23,7 +23,7 @@ export class Size extends Model<Size, SizeCreationAttributes> {
     })
     id: number
 
-    @ApiProperty({example: 'ADMIN', description: 'Роль'})
+    @ApiProperty({example: '5KG', description: 'Вес продукта'})
     @Column({
         type: DataType.STRING,
         unique: true,

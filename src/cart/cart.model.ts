@@ -1,11 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, BelongsTo, ForeignKey} from 'sequelize-typescript'
+import {Model, Table, Column, DataType, BelongsToMany, BelongsTo, ForeignKey} from 'sequelize-typescript'
 import { Product } from 'src/products/products.model';
 import { User } from 'src/users/users.model';
 import { CartProduct } from './cart-product.model';
 
 interface CartCreationAttributes {
-
+    
 }
 
 @Table({
@@ -23,6 +23,7 @@ export class Cart extends Model<Cart, CartCreationAttributes> {
     })
     id: number
 
+    @ApiProperty({example: '1', description: 'id пользователя'})
     @ForeignKey(() => User)
     @Column({
         type: DataType.INTEGER,

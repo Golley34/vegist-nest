@@ -1,4 +1,3 @@
-import { ApiProperty } from '@nestjs/swagger';
 import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, ForeignKey} from 'sequelize-typescript'
 import { Product } from 'src/products/products.model';
 import { Cart } from './cart.model';

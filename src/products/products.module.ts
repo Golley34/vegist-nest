@@ -20,5 +20,8 @@ import { ProductsSizeModule } from 'src/products-size/products-size.module';
     ProductsSizeModule,
     FilesModule
   ],
+  exports: [
+    ProductsService,
+  ]
 })
 export class ProductsModule {}

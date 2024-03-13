@@ -4,6 +4,7 @@ import { User } from './users.model';
 import { CreateUserDto } from './dto/createUser.dto';
 import { RolesService } from 'src/roles/roles.service';
 import { addRoleDto } from './dto/addRole.dto';
+import { CartService } from 'src/cart/cart.service';
 
 @Injectable()
 export class UsersService {
@@ -12,13 +13,17 @@ export class UsersService {
         @InjectModel(User)
         private userModel: typeof User,
         private roleModel: RolesService,
+        private cartModel: CartService,
     ) {}
 
     async createUser(dto: CreateUserDto) {
         const user = await this.userModel.create(dto)
         const role = await this.roleModel.getRoles('USER')
+        const cart = await this.cartModel.createCart()
         await user.$set('roles', [role.id])
+        await user.$set('cart', cart.id)
         user.roles = [role]
+        user.cart = cart
         return user;
     }
 

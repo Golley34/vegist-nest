@@ -4,7 +4,8 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Size } from './size.model';
 import { CreateSizeDto } from './dto/createSize.dto';
 
-@ApiTags('Роли')
+
+@ApiTags('Веса продуктов')
 @Controller('products-size')
 export class ProductsSizeController {
   constructor(private readonly productsSizeService: ProductsSizeService) {}

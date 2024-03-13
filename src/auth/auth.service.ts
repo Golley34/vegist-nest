@@ -23,6 +23,7 @@ export class AuthService {
         }
         const hashPassword = await bcrypt.hash(userDto.password, Number(process.env.BCRYPT_SALT) || 5)
         const user = await this.UsersService.createUser({...userDto, password: hashPassword})
+
         return this.generateToken(user)
     }
 

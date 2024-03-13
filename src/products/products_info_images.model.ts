@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Model, Table, Column, PrimaryKey, DataType, NotNull, BelongsToMany, BelongsTo, ForeignKey} from 'sequelize-typescript'
+import {Model, Table, Column, DataType, BelongsTo, ForeignKey} from 'sequelize-typescript'
 import { Products_info } from './products_info.model';
 
 interface ProductsInfoImagesCreationAttributes {
