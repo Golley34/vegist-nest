@@ -75,13 +75,19 @@ Nest is [MIT licensed](LICENSE).
 
 - Detailed api documentation is available at /docs
 
-- env file should contain the following fields:
-    APP_PORT
-    PG_DB
-    PG_HOST
-    PG_USER
-    PG_PASS
-    PG_PORT
-    BCRYPT_SALT
-    EMAIL
-    PRIVATE_KEY
+env file should contain the following fields:
+
+-     APP_PORT
+-    PG_DB
+-    PG_HOST
+-    PG_USER
+-    PG_PASS
+-    PG_PORT
+-    BCRYPT_SALT
+-    EMAIL
+-    PRIVATE_KEY
+
+
+Docker Pull Command:
+
+- docker pull golley/vegist-nest
