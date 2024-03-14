@@ -77,7 +77,7 @@ Nest is [MIT licensed](LICENSE).
 
 env file should contain the following fields:
 
--     APP_PORT
+-    APP_PORT
 -    PG_DB
 -    PG_HOST
 -    PG_USER
