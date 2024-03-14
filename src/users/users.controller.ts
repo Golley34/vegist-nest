@@ -22,7 +22,6 @@ export class UsersController {
 
   @ApiOperation({summary: 'Получение пользователей'})
   @ApiResponse({status: 200, type: [User]})
-  
   @Get()
   getUsers() {
     return this.usersService.getUsers()
